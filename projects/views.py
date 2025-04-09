@@ -144,7 +144,7 @@ def task_delete(request, pk):
 
     if request.method == 'POST':
         task.delete()
-        messages.success(request, 'Task deleted successfully!')
+        messages.success(request, '¡Tarea eliminada exitosamente!')
         return redirect('project_detail', pk=project_id)
 
     return render(request, 'projects/task_confirm_delete.html', {'task': task})
