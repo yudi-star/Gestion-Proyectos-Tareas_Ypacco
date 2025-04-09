@@ -18,11 +18,11 @@ Esta es una aplicación web desarrollada con Django que permite gestionar proyec
 
 ## Instalación
 
-- 1. Clona este repositorio:
+- 1.Clona este repositorio:
    ```bash
    git clone https://github.com/tu-usuario/gestor-proyectos.git
    cd gestor-proyectos
-- 2. Crea y activa un entorno virtual 
+- 2.Crea y activa un entorno virtual 
 - 3.Instala las dependencias necesarias
 - 4.pip install -r requirements.txt
 - 5.Realiza las migraciones de la base de datos
