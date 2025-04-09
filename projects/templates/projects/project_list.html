@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Proyectos{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Proyectos</h1>
+    <a href="{% url 'project_create' %}" class="btn btn-success">Crear Nuevo Proyecto</a>
+</div>
+
+<div class="row">
+    {% for project in projects %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.name }}</h5>
+                <p class="card-text">{{ project.description|truncatechars:100 }}</p>
+                <a href="{% url 'project_detail' project.id %}" class="btn btn-primary">Ver Detalles</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <div class="alert alert-info">No hay proyectos disponibles. <a href="{% url 'project_create' %}">Crea uno ahora</a>.</div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

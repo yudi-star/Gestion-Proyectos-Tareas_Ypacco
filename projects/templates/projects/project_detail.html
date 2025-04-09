@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Detalles del Proyecto{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ project.name }}</h1>
+    <p><strong>Descripción:</strong> {{ project.description }}</p>
+    <p><strong>Fecha de Creación:</strong> {{ project.created_date }}</p>
+    <p><strong>Propietario:</strong> {{ project.owner.username }}</p>
+
+    <h2>Tareas</h2>
+    <a href="{% url 'task_create' project.id %}" class="btn btn-success mb-3">Añadir Tarea</a>
+
+    {% if tasks %}
+    <ul class="list-group">
+        {% for task in tasks %}
+        <li class="list-group-item">
+            <strong>{{ task.title }}</strong> - {{ task.get_priority_display }} - {{ task.get_status_display }}
+            <br>
+            <small>Vence el: {{ task.due_date }}</small>
+            <div class="mt-2">
+                <a href="{% url 'task_update' task.id %}" class="btn btn-sm btn-primary">Editar</a>
+                <a href="{% url 'task_delete' task.id %}" class="btn btn-sm btn-danger">Eliminar</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No hay tareas asociadas a este proyecto.</p>
+    {% endif %}
+</div>
+{% endblock %}
