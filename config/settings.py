@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_interface',  
+    'colorfield',       
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'projects',
 ]
+
+# Configuración opcional para admin_interface
+X_FRAME_OPTIONS = 'SAMEORIGIN' 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -121,5 +126,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_URL = 'login'  # Ruta a tu vista de login
-LOGIN_REDIRECT_URL = 'project_list'  # Ruta después del login exitoso
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
